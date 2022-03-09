@@ -638,7 +638,7 @@ asmlinkage int sys_clone(struct pt_regs regs)
 	int __user *parent_tidptr, *child_tidptr;
 
 	clone_flags = regs.ebx;
-	newsp = regs.ecx;
+	newsp = regs.ecx;//ecx is the 3rd param of sys_clone:child_stack
 	parent_tidptr = (int __user *)regs.edx;
 	child_tidptr = (int __user *)regs.edi;
 	if (!newsp)
