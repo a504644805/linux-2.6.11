@@ -344,12 +344,12 @@ ENTRY(interrupt)
 
 vector=0
 ENTRY(irq_entries_start)
-.rept NR_IRQS
+.rept NR_IRQS //
 	ALIGN
 1:	pushl $vector-256
 	jmp common_interrupt
 .data
-	.long 1b
+	.long 1b //address of 1:
 .text
 vector=vector+1
 .endr
